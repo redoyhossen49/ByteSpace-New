@@ -15,6 +15,8 @@
   --color-brand-lime: #d4fb20;
   --color-brand-chip: #f0f0f0;
   --color-brand-surface: #f7f7f7;
+  --color-brand-mist: #e7e9f5;
+  --color-brand-blue: #1a56db;
 }
 
 @media (prefers-color-scheme: dark) {
