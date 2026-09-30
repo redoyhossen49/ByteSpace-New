@@ -55,7 +55,7 @@ export default function Testimonials() {
         className="pointer-events-none absolute inset-0 -z-10 size-full object-cover object-center"
       />
 
-      <div className="mx-auto w-full max-w-[1240px] px-5 py-20 sm:px-8 lg:py-24">
+      <div className="mx-auto w-full max-w-[1600px] px-6 py-20 lg:px-10 lg:py-24">
         <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-end lg:gap-16">
           <h2 className="text-[30px] font-bold leading-[1.1] tracking-[-0.02em] text-neutral-900 sm:text-[40px] lg:text-[48px]">
             {heading.map((line) => (
