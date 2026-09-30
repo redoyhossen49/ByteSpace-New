@@ -14,7 +14,7 @@ export default function BrandMarquee() {
   return (
     <section
       aria-label="Brands"
-      className="relative w-full overflow-hidden bg-white py-12 sm:py-16 lg:py-20"
+      className="relative w-full overflow-hidden bg-[#F5F5F6] py-12 sm:py-16 lg:py-20"
     >
       <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
         {Array.from({ length: copies }, (_, copy) => (

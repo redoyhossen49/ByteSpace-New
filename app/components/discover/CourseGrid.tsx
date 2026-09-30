@@ -26,6 +26,7 @@ export default function CourseGrid({
           href={course.href}
           image={course.image}
           author={course.author}
+          authorHref={`/creators/${course.authorSlug}`}
           rating={course.rating}
           level={course.level}
           lessons={course.lessons}
