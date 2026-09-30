@@ -11,7 +11,7 @@ export const navLinks: MenubarLink[] = [
 
 export const authLinks: MenubarLink[] = [
   { label: "Sign In", href: "/signin" },
-  { label: "Join Us", href: "/join" },
+  { label: "Join Us", href: "/signup" },
 ];
 
 export const cartHref = "/cart";

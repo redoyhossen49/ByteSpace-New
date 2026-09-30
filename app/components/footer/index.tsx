@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import BrandLogo from "@/app/components/brand-logo";
+import Container from "@/app/components/container";
 import NewsletterForm from "./NewsletterForm";
 
 type FooterLink = {
@@ -41,7 +42,7 @@ const legalLinks: FooterLink[] = [
 export default function Footer() {
   return (
     <footer className="bg-brand-surface pt-14 pb-10 lg:pt-16">
-      <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-10">
+      <Container>
         <div className="grid gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
           <div>
             <Link
@@ -109,7 +110,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

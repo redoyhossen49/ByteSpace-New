@@ -1,4 +1,5 @@
 import { defaultAvatars } from "@/app/components/avatar-stack/data";
+import Container from "@/app/components/container";
 import Image from "next/image";
 import { PiMagnifyingGlass } from "react-icons/pi";
 
@@ -25,7 +26,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col px-6 lg:px-10">
+      <Container className="relative z-10 flex flex-1 flex-col">
         <div className="pt-12 text-center sm:pt-20 lg:pt-24">
           <h1 className="text-[34px] font-bold leading-[1.1] tracking-[-0.02em] sm:text-[52px] lg:text-[80px] lg:leading-[1.04]">
             {headline.map((line) => (
@@ -110,7 +111,7 @@ export default function Hero() {
             />
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
