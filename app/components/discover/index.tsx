@@ -65,7 +65,7 @@ export default function Discover() {
           </Badge>
         </div>
 
-        <CourseGrid />
+        <CourseGrid className="mt-16 lg:mt-20" />
       </Container>
     </section>
   );

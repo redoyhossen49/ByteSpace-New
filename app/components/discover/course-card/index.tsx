@@ -25,6 +25,9 @@ type CourseCardProps = {
   price: string;
   priceSuffix?: string;
   avatars: Avatar[];
+  /** Preload the image - the first card of a listing sits in the viewport
+      and becomes the Largest Contentful Paint element. */
+  priority?: boolean;
   className?: string;
 };
 
@@ -43,6 +46,7 @@ export default function CourseCard({
   price,
   priceSuffix = "/lifetime",
   avatars,
+  priority = false,
   className = "",
 }: CourseCardProps) {
   return (
@@ -55,6 +59,7 @@ export default function CourseCard({
           alt={image.alt}
           width={image.width}
           height={image.height}
+          priority={priority}
           className="aspect-[355/208] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
         />
 
@@ -91,7 +96,11 @@ export default function CourseCard({
           {level}
         </span>
 
-        <AvatarStack avatars={avatars} overflowLabel={studentsLabel} size={30} />
+        <AvatarStack
+          avatars={avatars}
+          overflowLabel={studentsLabel}
+          size={30}
+        />
       </div>
 
       <p className="mt-4 text-[20px] font-bold text-brand-purple">
