@@ -21,7 +21,7 @@ const categories = [
 export default function Categories() {
   return (
     <section className="bg-white py-20 lg:py-24">
-      <div className="mx-auto w-full max-w-[1240px] px-5 sm:px-8">
+      <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-10">
         <h2 className="text-center text-[30px] font-bold tracking-[-0.02em] text-neutral-900 sm:text-[36px] lg:text-[40px]">
           Explore Diverse Learning Paths at Bytespace
         </h2>
