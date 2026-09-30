@@ -5,7 +5,7 @@ import type { Course } from "@/app/components/courses/data";
 import {
   creator,
   formatCreatorName,
-  getCreatorProfile,
+  getCreatorByByline,
 } from "@/app/components/creators/data";
 
 type CreatorSummaryProps = {
@@ -14,7 +14,7 @@ type CreatorSummaryProps = {
 
 /* The studio block at the foot of the enrolment card. */
 export default function CreatorSummary({ course }: CreatorSummaryProps) {
-  const profile = getCreatorProfile(course.author);
+  const profile = getCreatorByByline(course.author);
   const name = profile?.name ?? formatCreatorName(course.author);
   const avatar = profile?.avatar ?? creator.avatar;
 

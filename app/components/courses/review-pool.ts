@@ -1,4 +1,6 @@
 export type Review = {
+  /** Slug of the creator profile this review belongs to. */
+  slug: string;
   name: string;
   role: string;
   rating: number;
@@ -24,6 +26,7 @@ const avatars = [
 export const reviewPool: Review[] = [
   {
     name: "PurePearl Studio",
+    slug: "purepearl-studio",
     role: "UI/UX Designer",
     rating: 5,
     text: "The course provided me with a comprehensive understanding of digital asset creation. The lessons were in-depth, practical, and immediately applicable to my work. Highly recommended!",
@@ -31,6 +34,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Albert Flores",
+    slug: "albert-flores",
     role: "UI/UX Designer",
     rating: 5,
     text: "This course transformed my approach to digital design. The combination of theory, hands-on exercises, and real-world applications made it a truly enriching experience.",
@@ -38,6 +42,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Cody Fisher",
+    slug: "cody-fisher",
     role: "UI/UX Designer",
     rating: 5,
     text: "The project showcases and critique module created a collaborative environment where I could showcase my work, receive valuable feedback, and refine my skills.",
@@ -45,6 +50,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Brooklyn Simmons",
+    slug: "brooklyn-simmons",
     role: "UI/UX Designer",
     rating: 5,
     text: "Lessons on optimizing digital assets for various platforms were particularly insightful. The course adapts to the evolving digital landscape perfectly.",
@@ -52,6 +58,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Marina Abshire",
+    slug: "marina-abshire",
     role: "Brand Designer",
     rating: 5,
     text: "Clear structure, no filler. I finished the course with a portfolio piece I am genuinely proud of and a workflow I use every day.",
@@ -59,6 +66,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Darlene Robertson",
+    slug: "darlene-robertson",
     role: "Motion Designer",
     rating: 5,
     text: "The interactive media module alone was worth it. Everything else made the whole thing feel complete rather than a collection of clips.",
@@ -66,6 +74,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Ronald Braun",
+    slug: "ronald-braun",
     role: "Product Designer",
     rating: 4,
     text: "Very strong fundamentals section. I would have liked a little more on accessibility, but the critique sessions more than made up for it.",
@@ -73,6 +82,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Yolanda Ferry",
+    slug: "yolanda-ferry",
     role: "Illustrator",
     rating: 4,
     text: "Loved the module structure and the templates. A few of the later lessons assume more experience than the course claims to require.",
@@ -80,6 +90,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Amelia Vasquez",
+    slug: "amelia-vasquez",
     role: "Front End Developer",
     rating: 4,
     text: "Useful for bridging design and development. The export workflow module alone saved me hours on a real client project.",
@@ -87,6 +98,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Justen Becker",
+    slug: "justen-becker",
     role: "Graphic Designer",
     rating: 4,
     text: "Great pace and good pacing of the exercises. I took notes throughout and still went back twice to the project showcase module.",
@@ -94,6 +106,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Ethelyn Wilder",
+    slug: "ethelyn-wilder",
     role: "Art Director",
     rating: 3,
     text: "Solid foundation, though the later modules move quickly. I had to slow down and work through the exercises twice to get the full benefit.",
@@ -101,6 +114,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Katrina Hane",
+    slug: "katrina-hane",
     role: "Content Designer",
     rating: 3,
     text: "The design principles section is genuinely good. The platform optimisation part felt a little dated compared to everything else.",
@@ -108,6 +122,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Deion Bauch",
+    slug: "deion-bauch",
     role: "Junior Designer",
     rating: 3,
     text: "Helpful if you are new to digital assets. I already knew most of the basics, so the first few modules were slow going for me.",
@@ -115,6 +130,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Salma Little",
+    slug: "salma-little",
     role: "Freelancer",
     rating: 2,
     text: "The examples are good but there is very little about pricing or working with clients, which is what I actually came for.",
@@ -122,6 +138,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Ola Ritchie",
+    slug: "ola-ritchie",
     role: "Photographer",
     rating: 2,
     text: "This is a design course rather than a photography course. Useful overlap if you work across both, but not what the title suggests.",
@@ -129,6 +146,7 @@ export const reviewPool: Review[] = [
   },
   {
     name: "Tracey Dooley",
+    slug: "tracey-dooley",
     role: "Student",
     rating: 1,
     text: "The quizzes were harder than the lessons prepared me for, and the download links in module three did not work for me.",

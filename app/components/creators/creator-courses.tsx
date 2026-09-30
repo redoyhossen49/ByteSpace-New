@@ -11,10 +11,13 @@ import {
   sortCourses,
   sortDefault,
 } from "@/app/components/courses/course-filters";
+import type { Course } from "@/app/components/courses/data";
 
-import { creatorCourses } from "./data";
+type CreatorCoursesProps = {
+  courses: Course[];
+};
 
-export default function CreatorCourses() {
+export default function CreatorCourses({ courses }: CreatorCoursesProps) {
   const [price, setPrice] = useState(ALL);
   const [level, setLevel] = useState(ALL);
   const [category, setCategory] = useState(ALL);
@@ -32,7 +35,7 @@ export default function CreatorCourses() {
   const results = useMemo(
     () =>
       sortCourses(
-        filterCourses(creatorCourses, {
+        filterCourses(courses, {
           query: "",
           price,
           level,
@@ -41,8 +44,10 @@ export default function CreatorCourses() {
         }),
         sort,
       ),
-    [price, level, category, sort],
+    [courses, price, level, category, sort],
   );
+
+  if (courses.length === 0) return null;
 
   return (
     <section className="bg-white py-12 lg:py-16">
