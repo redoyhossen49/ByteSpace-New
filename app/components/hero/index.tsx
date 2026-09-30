@@ -1,21 +1,12 @@
+import { defaultAvatars } from "@/app/components/avatar-stack/data";
 import Image from "next/image";
 import { PiMagnifyingGlass } from "react-icons/pi";
 
 import CourseCard from "./cards/CourseCard";
-import HappyStudentsCard, {
-  type StudentAvatar,
-} from "./cards/HappyStudentsCard";
+import HappyStudentsCard from "./cards/HappyStudentsCard";
 import LearningProgressCard from "./cards/LearningProgressCard";
 
 const headline = ["Get Access to Hundreds", "Courses Available"];
-
-const students: StudentAvatar[] = [
-  { name: "Ayesha Karim" },
-  { name: "Rakib Hasan" },
-  { name: "Nusrat Jahan" },
-  { name: "Tanvir Ahmed" },
-  { name: "Mitu Akter" },
-];
 
 export default function Hero() {
   return (
@@ -108,7 +99,7 @@ export default function Hero() {
           <HappyStudentsCard
             rating={4.5}
             reviewCount={240}
-            avatars={students}
+            avatars={defaultAvatars}
             className="mx-auto xl:absolute xl:left-[22.5%] xl:top-[172px] xl:mx-0"
           />
         </div>
