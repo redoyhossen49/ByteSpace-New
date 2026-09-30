@@ -1,10 +1,15 @@
-import AuthPage from "../AuthPage";
+import AuthShowcase from "../AuthShowcase";
+import LoginForm from "./LoginForm";
+
+const heading = "Sign in with ease";
+
+const description =
+  "Experience a seamless and efficient sign-in process that grants you instant access to a world of knowledge.";
 
 export default function LoginPage() {
   return (
-    <AuthPage
-      title="Log in"
-      description="Welcome back. This page is not wrapped by the global layout."
-    />
+    <AuthShowcase heading={heading} description={description}>
+      <LoginForm />
+    </AuthShowcase>
   );
 }
