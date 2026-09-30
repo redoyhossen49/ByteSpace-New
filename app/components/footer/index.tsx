@@ -41,10 +41,14 @@ const legalLinks: FooterLink[] = [
 export default function Footer() {
   return (
     <footer className="bg-brand-surface pt-14 pb-10 lg:pt-16">
-      <div className="mx-auto w-full max-w-[1240px] px-5 sm:px-8">
+      <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
           <div>
-            <Link href="/" aria-label="ByteSpace home">
+            <Link
+              href="/"
+              aria-label="ByteSpace home"
+              className="inline-block transition-opacity hover:opacity-80"
+            >
               <BrandLogo tone="dark" width={180} height={39} />
             </Link>
 
