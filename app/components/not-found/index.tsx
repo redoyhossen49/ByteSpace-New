@@ -1,10 +1,14 @@
 import Link from "next/link";
 
+import GridBackdrop from "@/app/components/grid-backdrop";
+
 const heading = ["The page you are looking", "for doesn't exist"];
 
 export default function NotFound() {
   return (
     <section className="relative isolate overflow-hidden bg-brand-purple text-white">
+      <GridBackdrop className="-z-10" />
+
       <div className="mx-auto flex w-full max-w-[1240px] flex-col items-center px-5 pt-24 pb-24 text-center sm:px-8 lg:pt-28 lg:pb-28">
         <p
           aria-hidden

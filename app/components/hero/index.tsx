@@ -5,12 +5,15 @@ import { PiMagnifyingGlass } from "react-icons/pi";
 import CourseCard from "./cards/CourseCard";
 import HappyStudentsCard from "./cards/HappyStudentsCard";
 import LearningProgressCard from "./cards/LearningProgressCard";
+import GridBackdrop from "@/app/components/grid-backdrop";
 
 const headline = ["Get Access to Hundreds", "Courses Available"];
 
 export default function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-brand-purple text-white">
+      <GridBackdrop className="-z-20" />
+
       <Image
         src="/3d_ornament.png"
         alt=""
