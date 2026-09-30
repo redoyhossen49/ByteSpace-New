@@ -13,6 +13,8 @@
   --color-brand-purple: #4a0adc;
   --color-brand-purple-deep: #3d08bd;
   --color-brand-lime: #d4fb20;
+  --color-brand-chip: #f0f0f0;
+  --color-brand-surface: #f7f7f7;
 }
 
 @media (prefers-color-scheme: dark) {

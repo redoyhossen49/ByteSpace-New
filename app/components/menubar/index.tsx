@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { PiList, PiShoppingBag, PiX } from "react-icons/pi";
 
+import BrandLogo from "@/app/components/brand-logo";
 import { authLinks, cartHref, navLinks } from "./data";
 
 export default function Menubar() {
@@ -22,13 +22,10 @@ export default function Menubar() {
           aria-label="ByteSpace home"
           onClick={close}
         >
-          <Image
-            src="/logo-full.png"
-            alt="ByteSpace"
-            width={171}
-            height={37}
+          <BrandLogo
+            tone="light"
             priority
-            className="h-auto w-[150px] lg:w-[171px]"
+            className="w-[150px] lg:w-[171px]"
           />
         </Link>
 

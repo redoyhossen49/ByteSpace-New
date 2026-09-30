@@ -1,36 +1,15 @@
-import Image from "next/image";
 import { PiStarFill } from "react-icons/pi";
 
-export type StudentAvatar = {
-  name: string;
-  src?: string;
-};
+import AvatarStack, { type Avatar } from "@/app/components/avatar-stack";
 
 type HappyStudentsCardProps = {
   title?: string;
   rating: number;
   reviewCount: number;
   overflowLabel?: string;
-  avatars: StudentAvatar[];
+  avatars: Avatar[];
   className?: string;
 };
-
-const avatarPalette = [
-  "bg-brand-purple text-white",
-  "bg-brand-lime text-neutral-900",
-  "bg-neutral-900 text-white",
-  "bg-white text-neutral-900",
-  "bg-brand-purple-deep text-white",
-];
-
-function initials(name: string) {
-  return name
-    .split(" ")
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase())
-    .join("");
-}
 
 export default function HappyStudentsCard({
   title = "Happy Students",
@@ -50,38 +29,11 @@ export default function HappyStudentsCard({
         <PiStarFill className="text-brand-lime" size={12} aria-hidden />
       </p>
 
-      <div className="mt-3 flex items-center">
-        {avatars.map((avatar, index) => (
-          <span
-            key={avatar.name}
-            title={avatar.name}
-            style={{ marginLeft: index === 0 ? 0 : -10 }}
-            className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white text-[10px] font-semibold"
-          >
-            {avatar.src ? (
-              <Image
-                src={avatar.src}
-                alt={avatar.name}
-                width={32}
-                height={32}
-                className="size-full object-cover"
-              />
-            ) : (
-              <span
-                className={`flex size-full items-center justify-center ${
-                  avatarPalette[index % avatarPalette.length]
-                }`}
-              >
-                {initials(avatar.name)}
-              </span>
-            )}
-          </span>
-        ))}
-
-        <span className="-ml-[10px] flex size-8 shrink-0 items-center justify-center rounded-full border-2 border-white bg-brand-lime text-[10px] font-bold text-neutral-900">
-          {overflowLabel}
-        </span>
-      </div>
+      <AvatarStack
+        avatars={avatars}
+        overflowLabel={overflowLabel}
+        className="mt-3"
+      />
     </div>
   );
 }
