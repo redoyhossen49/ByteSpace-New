@@ -6,6 +6,7 @@ import { useState } from "react";
 import { PiList, PiShoppingBag, PiX } from "react-icons/pi";
 
 import BrandLogo from "@/app/components/brand-logo";
+import Container from "@/app/components/container";
 import { authLinks, cartHref, navLinks } from "./data";
 
 export default function Menubar() {
@@ -15,18 +16,17 @@ export default function Menubar() {
 
   return (
     <header className="w-full bg-brand-purple text-white">
-      <nav className="mx-auto flex h-20 w-full max-w-[1600px] items-center justify-between gap-6 px-6 lg:px-10">
+      <Container
+        as="nav"
+        className="flex h-20 items-center justify-between gap-6"
+      >
         <Link
           href="/"
           className="shrink-0"
           aria-label="ByteSpace home"
           onClick={close}
         >
-          <BrandLogo
-            tone="light"
-            priority
-            className="w-[150px] lg:w-[171px]"
-          />
+          <BrandLogo tone="light" priority className="w-[150px] lg:w-[171px]" />
         </Link>
 
         <ul className="hidden items-center gap-10 lg:flex">
@@ -80,7 +80,7 @@ export default function Menubar() {
         >
           {open ? <PiX size={26} /> : <PiList size={26} />}
         </button>
-      </nav>
+      </Container>
 
       <div
         id="menubar-mobile-menu"

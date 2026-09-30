@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import Container from "@/app/components/container";
 import GridBackdrop from "@/app/components/grid-backdrop";
 
 const heading = ["The page you are looking", "for doesn't exist"];
@@ -9,7 +10,7 @@ export default function NotFound() {
     <section className="relative isolate overflow-hidden bg-brand-purple text-white">
       <GridBackdrop className="-z-10" />
 
-      <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 pt-24 pb-24 text-center lg:px-10 lg:pt-28 lg:pb-28">
+      <Container className="flex flex-col items-center pt-24 pb-24 text-center lg:pt-28 lg:pb-28">
         <p
           aria-hidden
           className="bg-linear-to-b from-brand-lime to-[#2c7a54] bg-clip-text text-[clamp(6rem,30vw,28rem)] leading-[0.78] font-bold text-transparent select-none"
@@ -35,7 +36,7 @@ export default function NotFound() {
         >
           Back to Home
         </Link>
-      </div>
+      </Container>
     </section>
   );
 }
