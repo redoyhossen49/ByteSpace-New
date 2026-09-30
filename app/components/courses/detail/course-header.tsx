@@ -26,7 +26,7 @@ export default function CourseHeader({ course }: CourseHeaderProps) {
         <p className="mt-4 text-[14px] text-white/70">
           by{" "}
           <Link
-            href="/creators"
+            href={`/creators/${course.authorSlug}`}
             className="font-medium text-[#7ea2ff] transition-opacity hover:opacity-80"
           >
             {course.author}

@@ -1,13 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 import { PiStarFill, PiStar } from "react-icons/pi";
 
 import type { Review } from "@/app/components/courses/data";
 
 type ReviewCardProps = {
   review: Review;
+  /** Set false when the card already sits on the author's own profile. */
+  linkAuthor?: boolean;
 };
 
-export default function ReviewCard({ review }: ReviewCardProps) {
+export default function ReviewCard({
+  review,
+  linkAuthor = true,
+}: ReviewCardProps) {
   return (
     <li className="rounded-2xl border border-neutral-200 bg-white p-5">
       <div className="flex items-center justify-between gap-4">
@@ -22,7 +28,16 @@ export default function ReviewCard({ review }: ReviewCardProps) {
 
           <div className="min-w-0">
             <p className="truncate text-[15px] font-semibold text-neutral-900">
-              {review.name}
+              {linkAuthor ? (
+                <Link
+                  href={`/creators/${review.slug}`}
+                  className="transition-opacity hover:opacity-80"
+                >
+                  {review.name}
+                </Link>
+              ) : (
+                review.name
+              )}
             </p>
             <p className="text-[13px] text-neutral-400">{review.role}</p>
           </div>

@@ -3,6 +3,7 @@ import {
   moduleCopy,
   ratingBreakdown,
   reviewPool,
+  type Review,
 } from "./review-pool";
 
 export const categories = [
@@ -49,13 +50,7 @@ export type Module = {
   description: string;
 };
 
-export type Review = {
-  name: string;
-  role: string;
-  rating: number;
-  text: string;
-  avatar: { src: string; width: number; height: number; alt: string };
-};
+export type { Review } from "./review-pool";
 
 export type Course = {
   title: string;
@@ -66,6 +61,8 @@ export type Course = {
   href: string;
   image: { src: string; width: number; height: number; alt: string };
   author: string;
+  /** Slug of the creator profile that owns the byline. */
+  authorSlug: string;
   rating: number;
   level: Level;
   lessons: string;
@@ -344,6 +341,14 @@ const seeds: [string, Category, Topic, Level, number][] = [
   ["Baking Bread at Home", "Design", "Cooking", "Beginner", 15],
 ];
 
+/* The first page of the catalog is the studio's own work, which is what the
+   design shows on both the listing and the detail page. */
+function authorFor(index: number) {
+  return index < PER_PAGE
+    ? "purepearl studio"
+    : authors[index % authors.length];
+}
+
 function slugify(title: string) {
   return title
     .toLowerCase()
@@ -386,8 +391,8 @@ export const courses: Course[] = seeds.map(
       image: images[index % images.length],
       /* The first page of the catalog is the studio's own work, which is what
          the design shows on both the listing and the detail page. */
-      author:
-        index < PER_PAGE ? "purepearl studio" : authors[index % authors.length],
+      author: authorFor(index),
+      authorSlug: slugify(authorFor(index)),
       category,
       topic,
       level,
