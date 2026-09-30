@@ -7,6 +7,8 @@ import {
   PiPenNib,
 } from "react-icons/pi";
 
+import Container from "@/app/components/container";
+
 import CategoryCard from "./CategoryCard";
 
 const categories = [
@@ -21,16 +23,16 @@ const categories = [
 export default function Categories() {
   return (
     <section className="bg-white py-20 lg:py-24">
-      <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-10">
+      <Container>
         <h2 className="text-center text-[30px] font-bold tracking-[-0.02em] text-neutral-900 sm:text-[36px] lg:text-[40px]">
           Explore Diverse Learning Paths at Bytespace
         </h2>
 
         <p className="mx-auto mt-6 max-w-[980px] text-center text-[15px] leading-[1.7] text-neutral-400 sm:text-[17px]">
           At Bytespace, we believe in empowering individuals through knowledge.
-          Our diverse range of courses spans various fields, ensuring there&rsquo;s
-          something for everyone. Unleash your potential and explore our
-          carefully curated categories.
+          Our diverse range of courses spans various fields, ensuring
+          there&rsquo;s something for everyone. Unleash your potential and
+          explore our carefully curated categories.
         </p>
 
         <div className="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6 lg:gap-10">
@@ -43,7 +45,7 @@ export default function Categories() {
             />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import Container from "@/app/components/container";
+
 const heading = ["Unlock Your Potential as a", "Creator with ByteSpace"];
 
 export default function CreatorCta() {
@@ -15,7 +17,7 @@ export default function CreatorCta() {
         className="pointer-events-none absolute inset-0 -z-10 size-full object-cover object-center"
       />
 
-      <div className="mx-auto flex min-h-[440px] w-full max-w-[1600px] flex-col items-center justify-center px-6 py-20 text-center lg:min-h-[488px] lg:px-10 lg:py-24">
+      <Container className="flex min-h-[440px] flex-col items-center justify-center py-20 text-center lg:min-h-[488px] lg:py-24">
         <h2 className="text-[30px] font-bold leading-[1.15] tracking-[-0.02em] text-white sm:text-[36px] lg:text-[44px]">
           {heading.map((line) => (
             <span key={line} className="block">
@@ -38,7 +40,7 @@ export default function CreatorCta() {
         >
           Join as Creator
         </Link>
-      </div>
+      </Container>
     </section>
   );
 }

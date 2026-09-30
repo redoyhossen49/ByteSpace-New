@@ -1,10 +1,15 @@
-import AuthPage from "../AuthPage";
+import AuthShowcase from "../AuthShowcase";
+import SignupForm from "./SignupForm";
+
+const heading = "Sign up and come in";
+
+const description =
+  "The registration process is straightforward, uncomplicated, and efficient, allowing users to sign up quickly, easily, and at no cost.";
 
 export default function SignupPage() {
   return (
-    <AuthPage
-      title="Sign up"
-      description="Create your account. This page is not wrapped by the global layout."
-    />
+    <AuthShowcase heading={heading} description={description}>
+      <SignupForm />
+    </AuthShowcase>
   );
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { defaultAvatars } from "@/app/components/avatar-stack/data";
+import Container from "@/app/components/container";
 import HappyStudentsCard from "@/app/components/cards/HappyStudentsCard";
 import LearningProgressCard from "@/app/components/cards/LearningProgressCard";
 import CourseCard from "@/app/components/discover/course-card";
@@ -57,7 +58,7 @@ export default function Growth() {
         className="pointer-events-none absolute inset-0 -z-10 size-full object-cover object-center"
       />
 
-      <div className="mx-auto w-full max-w-[1600px] px-6 py-20 lg:px-10 lg:py-24">
+      <Container className="py-20 lg:py-24">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="order-1">
             <h2 className="text-[30px] font-bold leading-[1.25] tracking-[-0.02em] text-neutral-900 sm:text-[36px] lg:text-[44px]">
@@ -185,7 +186,7 @@ export default function Growth() {
             <FeatureList items={creatorFeatures} className="mt-8" />
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

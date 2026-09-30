@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import Container from "@/app/components/container";
 import Badge from "./Badge";
 import CourseGrid from "./CourseGrid";
 
@@ -33,7 +34,7 @@ export default function Discover() {
 
   return (
     <section className="bg-white py-20 text-center lg:py-24">
-      <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-10">
+      <Container>
         <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.02em] text-neutral-900 sm:text-[40px] lg:text-[48px]">
           {heading.map((line) => (
             <span key={line} className="block">
@@ -65,7 +66,7 @@ export default function Discover() {
         </div>
 
         <CourseGrid />
-      </div>
+      </Container>
     </section>
   );
 }

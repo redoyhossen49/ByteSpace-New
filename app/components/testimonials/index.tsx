@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import Container from "@/app/components/container";
+
 import TestimonialCard, { type Testimonial } from "./TestimonialCard";
 
 const heading = ["Discover What Our", "Community Is Saying"];
@@ -55,7 +57,7 @@ export default function Testimonials() {
         className="pointer-events-none absolute inset-0 -z-10 size-full object-cover object-center"
       />
 
-      <div className="mx-auto w-full max-w-[1600px] px-6 py-20 lg:px-10 lg:py-24">
+      <Container className="py-20 lg:py-24">
         <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-end lg:gap-16">
           <h2 className="text-[30px] font-bold leading-[1.1] tracking-[-0.02em] text-neutral-900 sm:text-[40px] lg:text-[48px]">
             {heading.map((line) => (
@@ -68,9 +70,9 @@ export default function Testimonials() {
           <p className="max-w-[600px] text-[15px] leading-[1.95] text-neutral-500 sm:text-[17px]">
             At ByteSpace, our vibrant community of learners and creators is at
             the heart of what we do. Hear directly from those who have
-            experienced the transformative journey of learning and creating on our
-            platform. Explore testimonials that reflect the diverse perspectives
-            of enthusiastic learners and accomplished creators.
+            experienced the transformative journey of learning and creating on
+            our platform. Explore testimonials that reflect the diverse
+            perspectives of enthusiastic learners and accomplished creators.
           </p>
         </div>
 
@@ -79,7 +81,7 @@ export default function Testimonials() {
             <TestimonialCard key={testimonial.name} {...testimonial} />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
