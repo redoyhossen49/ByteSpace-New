@@ -1,3 +1,10 @@
+import {
+  averageRating,
+  moduleCopy,
+  ratingBreakdown,
+  reviewPool,
+} from "./review-pool";
+
 export const categories = [
   "Design",
   "Development",
@@ -32,8 +39,30 @@ export type Topic = (typeof topics)[number];
 export const levels = ["Beginner", "Intermediate", "Advanced"] as const;
 export type Level = (typeof levels)[number];
 
+export type CurriculumItem = {
+  title: string;
+  duration: string;
+};
+
+export type Module = {
+  title: string;
+  description: string;
+};
+
+export type Review = {
+  name: string;
+  role: string;
+  rating: number;
+  text: string;
+  avatar: { src: string; width: number; height: number; alt: string };
+};
+
 export type Course = {
   title: string;
+  /** Longer form used as the detail page heading. */
+  headline: string;
+  subtitle: string;
+  slug: string;
   href: string;
   image: { src: string; width: number; height: number; alt: string };
   author: string;
@@ -47,6 +76,18 @@ export type Course = {
   category: Category;
   topic: Topic;
   publishedAt: string;
+  description: string[];
+  keyPoints: string[];
+  modules: Module[];
+  reviewList: Review[];
+  ratingBreakdown: { stars: number; count: number }[];
+  averageRating: number;
+  progress: number;
+  curriculum: CurriculumItem[];
+  lessonCount: number;
+  totalHours: number;
+  reviews: number;
+  students: number;
 };
 
 export const PER_PAGE = 6;
@@ -95,40 +136,110 @@ const images = [
 const statBlocks = [
   {
     rating: 4.5,
-    lessons: "17 Lessons",
+    lessonCount: 17,
     duration: "2 hours 16 mins",
+    totalHours: 24,
     comments: "59 Comments",
     studentsLabel: "26+",
+    reviews: 172,
+    students: 199,
+    progress: 55,
   },
   {
     rating: 4.8,
-    lessons: "24 Lessons",
+    lessonCount: 24,
     duration: "4 hours 30 mins",
+    totalHours: 31,
     comments: "128 Comments",
     studentsLabel: "1.2K",
+    reviews: 268,
+    students: 412,
+    progress: 30,
   },
   {
     rating: 4.3,
-    lessons: "12 Lessons",
+    lessonCount: 12,
     duration: "1 hour 45 mins",
+    totalHours: 18,
     comments: "34 Comments",
     studentsLabel: "840",
+    reviews: 96,
+    students: 143,
+    progress: 78,
   },
   {
     rating: 4.6,
-    lessons: "31 Lessons",
+    lessonCount: 31,
     duration: "6 hours 10 mins",
+    totalHours: 27,
     comments: "212 Comments",
     studentsLabel: "3.4K",
+    reviews: 341,
+    students: 528,
+    progress: 42,
   },
   {
     rating: 4.1,
-    lessons: "9 Lessons",
+    lessonCount: 9,
     duration: "3 hours 5 mins",
+    totalHours: 15,
     comments: "76 Comments",
     studentsLabel: "512",
+    reviews: 84,
+    students: 207,
+    progress: 18,
   },
 ];
+
+/* Curriculum and copy are cycled so every course opens on a full-looking detail
+   page; the lesson titles below are the ones the design shows. */
+const curriculumTitles = [
+  "Introduction to Digital Assets",
+  "Design Principles for Impacts",
+  "Advanced Techniques in Digital Creation",
+  "Setting Up Your Creative Workspace",
+  "Typography and Colour for Digital Products",
+  "Building Your First Concept",
+  "Iterating with Real Feedback",
+  "Exporting and Delivering Assets",
+];
+
+const curriculumDurations = [
+  "12 mins",
+  "21 mins",
+  "16 mins",
+  "18 mins",
+  "24 mins",
+  "14 mins",
+  "20 mins",
+  "11 mins",
+];
+
+/* The course the design was drawn for keeps its own heading and subtitle. */
+const keyPointPool = [
+  "Foundational Concepts",
+  "Design Principles Mastery",
+  "Advanced Techniques in Digital Creation",
+  "Project Showcases and Critique",
+  "Optimizing for Various Platforms",
+  "Digital Asset Management Best Practices",
+  "Monetization Strategies",
+  "Course Project: Building Your Portfolio",
+  "Workflow Automation and Shortcuts",
+  "Working with Clients and Feedback",
+];
+
+/* The course the design was drawn for keeps its own heading and subtitle. */
+const detailOverrides: Record<
+  string,
+  { headline: string; subtitle: string; keyPoints: string[] }
+> = {
+  "build-digital-asset": {
+    headline: "Build Digital Asset: A Comprehensive Guide",
+    subtitle: "Unlock the Power of Digital Creation with Expert Guidance",
+    keyPoints: keyPointPool.slice(0, 8),
+  },
+};
 
 const authors = [
   "purepearl studio",
@@ -240,20 +351,48 @@ function slugify(title: string) {
     .replace(/(^-|-$)/g, "");
 }
 
+function buildDescription(title: string, topic: string) {
+  return [
+    `Embark on an enlightening exploration into the world of ${topic.toLowerCase()} with our comprehensive course, "${title}". This transformative learning experience invites you to delve deep into the intricacies of crafting impactful digital content. From laying the groundwork with foundational concepts to mastering advanced techniques, this guide is meticulously curated to empower you with the skills essential for navigating the dynamic landscape of ${topic.toLowerCase()}.`,
+    "In the initial modules, you'll establish a solid foundation by immersing yourself in the foundational concepts that form the backbone of this discipline. Understand the fundamental elements that constitute compelling work and gain proficiency in leveraging these elements to communicate effectively in the digital realm.",
+    "As you progress through the course, you'll ascend to higher levels of expertise, delving into the nuances that drive impactful creations. Uncover the secrets behind effective visual communication, exploring colour, typography and layout strategies that elevate your work to new heights. Engage in hands-on exercises that reinforce your understanding, allowing you to apply these principles in practical scenarios.",
+  ];
+}
+
 export const courses: Course[] = seeds.map(
   ([title, category, topic, level, price], index) => {
     const stats = statBlocks[Math.floor(index / PER_PAGE) % statBlocks.length];
 
+    const slug = slugify(title);
+    const override = detailOverrides[slug];
+    const curriculumBlock = Math.floor(index / PER_PAGE);
+    const curriculum = Array.from({ length: 6 }, (_, lesson) => ({
+      title:
+        curriculumTitles[(curriculumBlock + lesson) % curriculumTitles.length],
+      duration:
+        curriculumDurations[
+          (curriculumBlock + lesson) % curriculumDurations.length
+        ],
+    }));
+
     return {
       title,
-      href: `/courses/${slugify(title)}`,
+      headline: override?.headline ?? title,
+      subtitle:
+        override?.subtitle ??
+        `Unlock the power of ${topic} with expert guidance`,
+      slug,
+      href: `/courses/${slug}`,
       image: images[index % images.length],
-      author: authors[index % authors.length],
+      /* The first page of the catalog is the studio's own work, which is what
+         the design shows on both the listing and the detail page. */
+      author:
+        index < PER_PAGE ? "purepearl studio" : authors[index % authors.length],
       category,
       topic,
       level,
       price,
-      lessons: stats.lessons,
+      lessons: `${stats.lessonCount} Lessons`,
       duration: stats.duration,
       comments: stats.comments,
       studentsLabel: stats.studentsLabel,
@@ -261,8 +400,23 @@ export const courses: Course[] = seeds.map(
       publishedAt: new Date(Date.UTC(2025, 8, 1) - index * 9 * 86400000)
         .toISOString()
         .slice(0, 10),
+      description: buildDescription(title, topic),
+      keyPoints: override?.keyPoints ?? keyPointPool,
+      modules: moduleCopy,
+      reviewList: reviewPool,
+      ratingBreakdown,
+      averageRating: averageRating(),
+      progress: stats.progress,
+      curriculum,
+      lessonCount: stats.lessonCount,
+      totalHours: stats.totalHours,
+      reviews: stats.reviews,
+      students: stats.students,
     };
   },
 );
 
 export const featuredCourses = courses.slice(0, PER_PAGE);
+
+/* The single preview video every course page embeds for now. */
+export const previewVideoId = "6Nx9ZM_8Vwo";

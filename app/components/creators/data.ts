@@ -20,11 +20,24 @@ export const creator = {
   followers: 12,
 };
 
-/* Everything in the studio's catalog, credited to the studio rather than to
-   the per-course author the shared dataset carries. */
-export const creatorCourses: Course[] = featuredCourses.map((course) => ({
-  ...course,
-  author: creator.byline,
-}));
+/* Everything in the studio's catalog. */
+export const creatorCourses: Course[] = featuredCourses;
 
 export const creatorProducts = creatorCourses.length;
+
+/* Keyed by the byline the course cards carry, so a course detail page can show
+   the right studio block. */
+export const creatorProfiles: Record<string, typeof creator> = {
+  [creator.byline]: creator,
+};
+
+export function getCreatorProfile(byline: string) {
+  return creatorProfiles[byline];
+}
+
+export function formatCreatorName(byline: string) {
+  return byline
+    .split(" ")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
