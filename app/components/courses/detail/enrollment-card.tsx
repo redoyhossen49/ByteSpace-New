@@ -9,8 +9,9 @@ type EnrollmentCardProps = {
 };
 
 /* The white card beside the preview: what the course covers, the price and the
-   enrolment call to action. It deliberately runs past the purple band, so the
-   section must not clip it. */
+   enrolment call to action. From md up it is pulled out of the flow by the page,
+   so it hangs past the purple band over the white section; nothing above it may
+   clip it. */
 export default function EnrollmentCard({ course }: EnrollmentCardProps) {
   return (
     <aside className="relative z-20 rounded-2xl bg-white p-6 text-neutral-800 shadow-[0_24px_60px_-30px_rgba(12,4,54,0.45)] lg:p-7">
