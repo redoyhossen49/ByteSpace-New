@@ -83,7 +83,7 @@ export default function CourseCard({
         </span>
       </div>
 
-      <p className="mt-1 text-[12px] text-neutral-400">
+      <p className="mt-1 text-left text-[12px] text-neutral-400">
         by{" "}
         <Link href={authorHref} className="text-[#3b5bdb] hover:underline">
           {author}
@@ -103,7 +103,7 @@ export default function CourseCard({
         />
       </div>
 
-      <p className="mt-4 text-[20px] font-bold text-brand-purple">
+      <p className="mt-4 text-left text-[20px] font-bold text-brand-purple">
         {price}
         <span className="text-[12px] font-normal text-neutral-400">
           {priceSuffix}

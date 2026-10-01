@@ -43,20 +43,23 @@ export default async function CourseDetailPage({
 
   return (
     <>
-      {/* The band stays open at the bottom so the enrolment card, which is taller
-          than the band, can hang over the white section below it. */}
+      {/* The band is sized by the preview video only and stops just beneath it,
+          so the taller enrolment card hangs down over the white section instead
+          of stretching the purple with it. */}
       <section className="bg-brand-purple text-white">
-        <Container className="pb-20 pt-10 lg:pb-24 lg:pt-12">
+        <Container className="pb-8 pt-10 lg:pt-12">
           <CourseHeader course={course} />
 
-          <div className="mt-8 grid items-start gap-6 md:grid-cols-[1fr_340px] lg:mt-10 lg:grid-cols-[1fr_440px] lg:gap-10">
+          <div className="relative mt-8 grid items-start gap-6 md:grid-cols-[1fr_340px] lg:mt-10 lg:grid-cols-[1fr_440px] lg:gap-10">
             <CourseVideo
               videoId={previewVideoId}
               title={course.headline}
               poster={poster}
             />
 
-            <EnrollmentCard course={course} />
+            <div className="md:absolute md:right-0 md:top-0 md:w-[340px] lg:w-[440px]">
+              <EnrollmentCard course={course} />
+            </div>
           </div>
         </Container>
       </section>
