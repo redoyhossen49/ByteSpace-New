@@ -10,7 +10,7 @@ export const navLinks: MenubarLink[] = [
 ];
 
 export const authLinks: MenubarLink[] = [
-  { label: "Sign In", href: "/signin" },
+  { label: "Sign In", href: "/login" },
   { label: "Join Us", href: "/signup" },
 ];
 
