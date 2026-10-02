@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Container from "@/app/components/container";
 import CreatorCard from "@/app/components/creators/creator-card";
 import { creators } from "@/app/components/creators/data";
+import GridBackdrop from "@/app/components/grid-backdrop";
 
 export const metadata: Metadata = {
   title: "Creators | ByteSpace",
@@ -16,7 +17,9 @@ export default function CreatorsPage() {
 
   return (
     <>
-      <section className="bg-brand-purple text-white">
+      <section className="relative isolate overflow-hidden bg-brand-purple text-white">
+        <GridBackdrop className="-z-10" offsetY="-5rem" />
+
         <Container className="py-14 text-center lg:py-20">
           <h1 className="text-[30px] font-bold tracking-[-0.02em] sm:text-[38px]">
             Meet Our Creators
