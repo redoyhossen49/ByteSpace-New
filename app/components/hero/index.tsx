@@ -28,7 +28,7 @@ export default function Hero() {
 
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[url('/3d-ornament.png')] bg-cover bg-center bg-no-repeat"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[url('/3d-ornament.png')] bg-cover bg-top bg-no-repeat"
       />
 
       <div
