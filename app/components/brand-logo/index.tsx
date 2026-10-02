@@ -8,9 +8,6 @@ type BrandLogoProps = {
   height?: number;
 };
 
-/* Same artwork in two colourways: logo-full.png paints the wordmark in
-   near-white for dark surfaces, footer-logo.png paints it in near-black for
-   light ones. The lime mark is identical in both. */
 const sources = {
   light: "/logo-full.png",
   dark: "/footer-logo.png",
@@ -30,7 +27,7 @@ export default function BrandLogo({
       width={width}
       height={height}
       priority={priority}
-      className={`h-auto ${className}`}
+      className={`block h-auto ${className}`}
     />
   );
 }
