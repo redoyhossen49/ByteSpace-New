@@ -16,12 +16,12 @@ export default function Menubar() {
   const close = () => setOpen(false);
 
   return (
-    <header className="relative isolate w-full overflow-hidden bg-brand-purple text-white">
+    <header className="relative pt-8  isolate w-full overflow-hidden bg-brand-purple   text-white">
       <GridBackdrop className="-z-10" />
 
       <Container
         as="nav"
-        className="flex h-20 items-center justify-between gap-6"
+        className="flex  items-center justify-between gap-6"
       >
         <Link
           href="/"
@@ -134,6 +134,7 @@ export default function Menubar() {
           </Link>
         </div>
       </div>
+     
     </header>
   );
 }

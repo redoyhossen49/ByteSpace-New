@@ -23,31 +23,79 @@ const headline = ["Get Access to Hundreds", "Courses Available"];
    the 100svh band SiteShell builds with the menubar. */
 export default function Hero() {
   return (
-    <section className="relative isolate flex flex-1 flex-col overflow-hidden bg-brand-purple text-white">
+    <section className="relative isolate  flex flex-1 flex-col  overflow-hidden bg-brand-purple  text-white  pt-2">
       <GridBackdrop className="-z-20" offsetY="-5rem" />
 
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[url('/3d-ornament.png')] bg-cover bg-top bg-no-repeat"
-      />
+      <div>
+         <Image
+          src="/Frame1.png"
+          alt=""
+          width={150}
+          height={150}
+          unoptimized
+          className="absolute top-8 hidden lg:block"
+        />
+        <Image
+          src="/Frame2.png"
+          alt=""
+          width={200}
+          height={200}
+          unoptimized
+          className=" absolute left-44 top-30 hidden lg:block"
+        />
+         <Image
+          src="/Cone1.png"
+          alt=""
+          width={200}
+          height={200}
+          unoptimized
+          className=" absolute left-1/6 bottom-0 hidden lg:block"
+        />
+        <Image
+          src="/Cone3.png"
+          alt=""
+          width={150}
+          height={150}
+          unoptimized
+          className=" absolute right-0 top-10 hidden lg:block"/>
+
+          <Image
+          src="/Frame3.png"
+          alt=""
+          width={200}
+          height={200}
+          unoptimized
+          className=" absolute right-44 top-80 hidden lg:block"/>
+
+          <Image
+          src="/Cone2.png"
+          alt=""
+          width={100}
+          height={100}
+          unoptimized
+          className=" absolute right-70 top-50 hidden lg:block"/>
+
+      </div>
 
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 flex justify-center"
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-20 flex justify-center "
       >
         <Image
           src="/human-with-card.svg"
           alt=""
-          width={1149}
-          height={515}
+          width={1200}
+          height={480}
           unoptimized
-          className="w-[60%] max-w-[1149px]"
+          className="w-[55%] max-w-[1149px] hidden lg:block"
         />
+        
+
       </div>
 
-      <Container className="flex flex-1 flex-col">
-        <div className="pt-[clamp(32px,7vh,88px)] text-center">
-          <h1 className="text-[clamp(30px,7vh,64px)] font-bold leading-[1.12] tracking-[-0.02em] sm:text-[clamp(40px,6.4vh,80px)] sm:leading-[1.08]">
+      <Container className="flex  flex-col mt-10 ">
+        <div className="text-center">
+          <h1 className="text-[clamp(30px,7vh,64px)] font-bold leading-[1.12] tracking-[-0.02em] sm:text-[clamp(30px,6.4vh,70px)] sm:leading-[1.08]">
             {headline.map((line) => (
               <span key={line} className="block">
                 {line}
@@ -55,7 +103,7 @@ export default function Hero() {
             ))}
           </h1>
 
-          <p className="mx-auto mt-[clamp(14px,2.6vh,32px)] max-w-[880px] text-[clamp(13px,1.8vh,17px)] leading-relaxed text-white/80">
+          <p className="mx-auto  mt-2 max-w-[880px] text-[clamp(13px,1.8vh,17px)] leading-relaxed text-white/80">
             Unlock your creativity, gain valuable knowledge, and grow your
             business with our wide range of courses.
           </p>
@@ -63,26 +111,26 @@ export default function Hero() {
           <form
             action="/courses"
             method="get"
-            className="mx-auto mt-[clamp(18px,3.4vh,44px)] flex max-w-[560px] flex-col gap-3 sm:flex-row sm:items-center sm:gap-5"
+            className="mx-auto my-4 flex max-w-[500px] flex-col  sm:flex-row sm:items-center gap-3  "
           >
             <div className="relative flex-1">
               <PiMagnifyingGlass
                 aria-hidden
                 size={20}
-                className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-neutral-400"
+                className="pointer-events-none absolute left-12 top-1/2 -translate-y-1/2 text-neutral-400"
               />
               <input
                 type="search"
                 name="q"
                 placeholder="Course, topic, creator"
                 aria-label="Search courses"
-                className="h-[clamp(44px,6.6vh,56px)] w-full rounded-full bg-white pl-12 pr-5 text-[15px] text-neutral-900 outline-none placeholder:text-neutral-400 focus-visible:ring-2 focus-visible:ring-brand-lime"
+                className="h-[clamp(44px,6.6vh,56px)] w-[80%] rounded-full bg-white pl-12 pr-5 text-[15px] text-neutral-900 outline-none placeholder:text-neutral-400 focus-visible:ring-2 focus-visible:ring-brand-lime"
               />
             </div>
 
             <button
               type="submit"
-              className="h-[clamp(44px,6.6vh,56px)] shrink-0 rounded-full bg-brand-lime px-8 text-[15px] font-semibold text-neutral-900 transition-opacity hover:opacity-90"
+              className="h-[clamp(44px,6.6vh,56px)] shrink-0 rounded-full bg-brand-lime px-8 text-[15px] font-semibold lg:mr-8 text-neutral-900 transition-opacity hover:opacity-90"
             >
               Search
             </button>
