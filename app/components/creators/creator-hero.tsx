@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import Container from "@/app/components/container";
 import type { Creator } from "@/app/components/creators/data";
+import GridBackdrop from "@/app/components/grid-backdrop";
 
 import FollowButton from "./follow-button";
 
@@ -18,7 +19,9 @@ export default function CreatorHero({ creator }: CreatorHeroProps) {
         ];
 
   return (
-    <section className="bg-brand-purple text-white">
+    <section className="relative isolate overflow-hidden bg-brand-purple text-white">
+      <GridBackdrop className="-z-10" offsetY="-5rem" />
+
       <Container className="py-14 lg:py-20">
         <div className="flex items-center gap-5">
           <Image

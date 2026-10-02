@@ -7,6 +7,7 @@ import { PiList, PiShoppingBag, PiX } from "react-icons/pi";
 
 import BrandLogo from "@/app/components/brand-logo";
 import Container from "@/app/components/container";
+import GridBackdrop from "@/app/components/grid-backdrop";
 import { authLinks, cartHref, navLinks } from "./data";
 
 export default function Menubar() {
@@ -15,7 +16,9 @@ export default function Menubar() {
   const close = () => setOpen(false);
 
   return (
-    <header className="w-full bg-brand-purple text-white">
+    <header className="relative isolate w-full overflow-hidden bg-brand-purple text-white">
+      <GridBackdrop className="-z-10" />
+
       <Container
         as="nav"
         className="flex h-20 items-center justify-between gap-6"

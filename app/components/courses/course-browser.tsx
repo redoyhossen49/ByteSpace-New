@@ -7,6 +7,7 @@ import { PiMagnifyingGlass } from "react-icons/pi";
 import Badge from "@/app/components/discover/Badge";
 import CourseGrid from "@/app/components/discover/CourseGrid";
 import Container from "@/app/components/container";
+import GridBackdrop from "@/app/components/grid-backdrop";
 
 import CourseToolbar from "./course-toolbar";
 import FilterDropdown from "./filter-dropdown";
@@ -86,7 +87,9 @@ export default function CourseBrowser() {
 
   return (
     <>
-      <section className="bg-brand-purple py-14 text-white lg:py-20">
+      <section className="relative isolate overflow-hidden bg-brand-purple py-14 text-white lg:py-20">
+        <GridBackdrop className="-z-10" offsetY="-5rem" />
+
         <Container className="flex flex-col items-center">
           <h1 className="text-center text-[30px] font-bold tracking-[-0.02em] sm:text-[38px]">
             Find Your Next Course
