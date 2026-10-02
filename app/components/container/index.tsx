@@ -16,7 +16,7 @@ export default function Container({
   children,
 }: ContainerProps) {
   return (
-    <Tag className={`mx-auto w-full max-w-[1600px] px-6 lg:px-10 ${className}`}>
+    <Tag className={`mx-auto w-full max-w-[1600px]  px-6 lg:px-10 ${className}`}>
       {children}
     </Tag>
   );
