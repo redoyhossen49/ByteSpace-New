@@ -7,6 +7,7 @@ import CourseHeader from "@/app/components/courses/detail/course-header";
 import CourseTabs from "@/app/components/courses/detail/course-tabs";
 import CourseVideo from "@/app/components/courses/detail/course-video";
 import EnrollmentCard from "@/app/components/courses/detail/enrollment-card";
+import GridBackdrop from "@/app/components/grid-backdrop";
 
 const poster = {
   src: "/video-thumnail.jpg",
@@ -46,7 +47,9 @@ export default async function CourseDetailPage({
       {/* The band is sized by the preview video only and stops just beneath it,
           so the taller enrolment card hangs down over the white section instead
           of stretching the purple with it. */}
-      <section className="bg-brand-purple text-white">
+      <section className="relative isolate overflow-hidden bg-brand-purple text-white">
+        <GridBackdrop className="-z-10" offsetY="-5rem" />
+
         <Container className="pb-8 pt-10 lg:pt-12">
           <CourseHeader course={course} />
 

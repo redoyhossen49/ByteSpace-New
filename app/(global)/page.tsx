@@ -3,13 +3,13 @@ import Categories from "@/app/components/categories";
 import CreatorCta from "@/app/components/creator-cta";
 import Discover from "@/app/components/discover";
 import Growth from "@/app/components/growth";
-import Hero from "@/app/components/hero";
 import Testimonials from "@/app/components/testimonials";
 
+/* Hero is rendered by SiteShell, which pairs it with the menubar in a single
+   100svh band. */
 export default function Home() {
   return (
     <>
-      <Hero />
       <BrandMarquee />
       <Discover />
       <Categories />
