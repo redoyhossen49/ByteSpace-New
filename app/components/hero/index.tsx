@@ -41,7 +41,7 @@ export default function Hero() {
           width={1149}
           height={515}
           unoptimized
-          className="w-[80%] max-w-[1149px]"
+          className="w-[60%] max-w-[1149px]"
         />
       </div>
 
